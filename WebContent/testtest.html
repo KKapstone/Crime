@@ -114,7 +114,7 @@
 	        map.data.addGeoJson(geojson);
 	    });
 	
-	    map.data.addListener('click', function(e) {
+	    map.data.addListener('mouseover', function(e) {
 	        var feature = e.feature;
 	
 	        if (feature.getProperty('focus') !== true) {
@@ -125,7 +125,7 @@
 	    });
 	
 	    //마우스 올리면 area1, 즉 시 이름이 나온다.
-	    map.data.addListener('mouseover', function(e) {
+	    map.data.addListener('click', function(e) {
 	    	for(var f in e){
 	    		var i=0;
 		        var feature = e.feature,
