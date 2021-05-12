@@ -116,49 +116,11 @@
 	
 	    map.data.addListener('click', function(e) {
 	        var feature = e.feature;
-	
+	        var regionName = feature.getProperty('area1');
+	        var n=-1;
 	        if (feature.getProperty('focus') !== true) {
 	            feature.setProperty('focus', true);
-	            var feature = e.feature,
-	            regionName = feature.getProperty('area1');
-	        var n=-1;
-	        if(selectedCrimeType==="murder"){
-	        	n=feature.getProperty(selectedYear).murder;
-	        }else if(selectedCrimeType==="sex_violence"){
-	        	n=feature.getProperty(selectedYear).sex_violence;
-	        }else if(selectedCrimeType==="assault"){
-	        	n=feature.getProperty(selectedYear).assault;
-	        }else if(selectedCrimeType==="intrud"){
-	        	n=feature.getProperty(selectedYear).intrud;
-	        }
-		
-			var textbox=regionName.concat("\n"+n);
-
-	        tooltip.css({
-	            display: '',
-	            left: e.offset.x,
-	            top: e.offset.y
-	        }).text(textbox);
-	
-	        
-	        map.data.overrideStyle(feature, {
-	            fillOpacity: 0.6,
-	            strokeWeight: 4,
-	            strokeOpacity: 1
-	        });
-	        } else {
-	            feature.setProperty('focus', false);
-	            tooltip.hide().empty();
-		        map.data.revertStyle();
-	        }
-	    });
-	
-	    //마우스 올리면 area1, 즉 시 이름이 나온다.
-	    map.data.addListener('mouseover', function(e) {
-		        var feature = e.feature,
-		            regionName = feature.getProperty('area1');
-		        var n=-1;
-		        if(selectedCrimeType==="murder"){
+	            if(selectedCrimeType==="murder"){
 		        	n=feature.getProperty(selectedYear).murder;
 		        }else if(selectedCrimeType==="sex_violence"){
 		        	n=feature.getProperty(selectedYear).sex_violence;
@@ -182,6 +144,15 @@
 		            strokeWeight: 4,
 		            strokeOpacity: 1
 		        });
+	        } else {
+	            feature.setProperty('focus', false);
+	        }
+	    });
+	
+	    //마우스 올리면 area1, 즉 시 이름이 나온다.
+	    map.data.addListener('mouseover', function(e) {
+		       
+		        
 	    	
 	    });
 	
