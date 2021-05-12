@@ -132,7 +132,11 @@
 		            top: e.offset.y
 		        }).text(textbox);
 		
-		        
+		        map.data.overrideStyle(feature, {
+		            fillOpacity: 0.6,
+		            strokeWeight: 4,
+		            strokeOpacity: 1
+		        });
 		        
 	        } else {
 	            feature.setProperty('focus', false);
