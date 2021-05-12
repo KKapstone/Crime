@@ -91,13 +91,7 @@
 
 	function startDataLayer() {
 	    map.data.setStyle(function(feature) {
-	        var styleOptions = {
-	            fillColor: '#ff0000',
-	            fillOpacity: 0.0001,
-	            strokeColor: '#ff0000',
-	            strokeWeight: 2,
-	            strokeOpacity: 0.4
-	        };
+	        
 	
 	        if (feature.getProperty('focus')) {
 	            styleOptions.fillOpacity = 0.6;
